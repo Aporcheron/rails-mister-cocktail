@@ -1,14 +1,36 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "background.jpg"%>');">
+  <div class="banner-content">
+    <h1>Let's imagine new cocktails</h1>
+    <p>Never forget the cocktails you love</p>
+    <%= link_to t(".top_call_to_action", default: "Create a cocktail"), new_cocktail_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+  </div>
+</div>
+
 <div class="container text-center">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-    <div class="card">
-      <h1>Cocktails</h1>
-      <% @cocktails.each do |cocktail| %>
-        <h3><%= cocktail.name %></h3>
-        <%= link_to "See the recipe", cocktail_path(cocktail) %> | <%= link_to 'Delete', cocktail_path(cocktail), data: {:confirm => 'Are you sure?'}, :method => :delete %>
-      <% end %>
-      <br>
-      <br>
-      <%= link_to t(".top_call_to_action", default: "Add a cocktail"), new_cocktail_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+
+      <div class="card">
+        <div class="card-title">
+        <div class="row"><h1>Your cocktails</h1></div>
+
+        <div class="row">
+          <% @cocktails.each do |cocktail| %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('background.jpg') %>');">
+                <div class="card-description">
+                  <h2><%= cocktail.name %></h2>
+                  <%= link_to "See the recipe", cocktail_path(cocktail) %> | <%= link_to 'Delete', cocktail_path(cocktail), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>
+
+
