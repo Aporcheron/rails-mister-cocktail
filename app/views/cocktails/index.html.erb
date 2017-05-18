@@ -4,7 +4,7 @@
       <h1>Cocktails</h1>
       <% @cocktails.each do |cocktail| %>
         <h3><%= cocktail.name %></h3>
-        <%= link_to "See the recipe", cocktail_path(cocktail) %>
+        <%= link_to "See the recipe", cocktail_path(cocktail) %> | <%= link_to 'Delete', cocktail_path(cocktail), data: {:confirm => 'Are you sure?'}, :method => :delete %>
       <% end %>
       <br>
       <br>
