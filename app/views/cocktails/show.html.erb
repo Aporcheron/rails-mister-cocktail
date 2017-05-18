@@ -1,0 +1,31 @@
+<div class="container text-center">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="card">
+      <h2><%= @cocktail.name %></h2>
+      <!-- List of doses -->
+      <p><strong>Recipe:</strong></p>
+      <ul>
+      <% @cocktail.doses.each do |dose| %>
+        <li>
+          <%= dose.description %> of <%= dose.ingredient.name %>
+          <%= link_to 'Delete', cocktail_dose_path(@cocktail.id, dose.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+      <% end %>
+      </ul>
+      <%= link_to "Back to cocktails", cocktails_path, class: "btn btn-primary" %>
+   </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="card card-form">
+      <h2>Add a dose</h2>
+      <%= simple_form_for [@cocktail, @ingredient, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.input :ingredient, :collection => Ingredient.all %>
+        <%= f.submit "Add a dose", class:"btn btn-danger" %>
+      <% end %>
+   </div>
+  </div>
+</div>
