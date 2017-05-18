@@ -8,7 +8,9 @@
       <% @cocktail.doses.each do |dose| %>
         <li>
           <%= dose.description %> of <%= dose.ingredient.name %>
-          <%= link_to 'Delete', cocktail_dose_path(@cocktail.id, dose.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to cocktail_dose_path(@cocktail.id, dose.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
         </li>
       <% end %>
       </ul>
@@ -23,7 +25,7 @@
       <h2>Add a dose</h2>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
         <%= f.input :description %>
-        <%= f.association :ingredient %>
+        <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
         <%= f.submit "Add a dose", class:"navbar-wagon-item navbar-wagon-button btn" %>
       <% end %>
    </div>
