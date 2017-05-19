@@ -47,13 +47,22 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  display: flex;
+  align-items: center;
 }
 .card-description h2 {
   font-size: 24px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 10px;
 }
 .card-description p {
   font-size: 13px;
   }
+.card-description a {
+  z-index: 3;
+}
+
 .card-link {
   position: absolute;
   top: 0;
