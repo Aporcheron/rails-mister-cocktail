@@ -67,3 +67,8 @@ gem 'rails-controller-testing', group: [ :test ]
 
 # Security gems
 gem 'figaro'
+
+# Cloudinary gem
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
